@@ -1,0 +1,4 @@
+name = "SegmentAnalytics"
+uuid = "383780d8-6555-4e9d-ab4b-56ed78d9a773"
+authors = ["Egor Shmorgun <egor.shmorgun@opensesame.com>"]
+version = "0.1.0"

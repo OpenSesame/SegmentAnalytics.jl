@@ -24,8 +24,10 @@ end
     "properties" => Dict("p1" => 1, "p2" => 2)
   )
 
-  track(analytics, payload)
-
+  apply(runworker_patch) do 
+    track(analytics, payload)
+  end
+  
   @test length(analytics.queue) == 1
   @test !isnothing(analytics.worker_task)
 end

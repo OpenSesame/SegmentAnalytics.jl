@@ -117,6 +117,8 @@ function send_request(transport::Transport, write_key, batch)
     )
   )
 
+  @debug payload
+
   response = @mock HTTP.post(
     path(transport, write_key);
     body=payload,

@@ -53,7 +53,7 @@ test_message = Dict(
     @test res.status == 200
     @test haskey(sent_payload, "sentAt")
     @test haskey(sent_payload, "batch")
-    @test JSON.parse(sent_payload["batch"][begin])["event"] == "test_event"
+    @test sent_payload["batch"][begin]["event"] == "test_event"
   end
 end
 

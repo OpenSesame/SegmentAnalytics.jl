@@ -36,8 +36,8 @@ function track(analytics::Analytics, attrs::Dict)
 end
 
 function enqueue(analytics::Analytics, action::Dict)::Bool
-  if haskey(action, "messageId")
-    action["messageId"] = uuid4() |> string
+  if haskey(action, :messageId)
+    action[:messageId] = uuid4() |> string
   end
 
   if length(analytics.queue) < analytics.max_queue_size

@@ -13,9 +13,11 @@ mutable struct Analytics
   worker_task::Union{Nothing,Task}
 end
 
-function Analytics(options::Dict)
+function Analytics(;options...)
+  options = Dict(options)
+
   queue = Queue{Dict}()
-  write_key = get(options, "write_key", nothing)
+  write_key = get(options, :write_key, nothing)
 
   isnothing(write_key) && throw(ArgumentError("Write key must be initialized"))
 

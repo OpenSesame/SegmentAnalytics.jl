@@ -13,7 +13,7 @@ mutable struct Worker
 end
 
 function Worker(queue::Queue, write_key::String, options::Dict)
-  batch_size = get(options, "batch_size", MAX_MESSAGE_BATCH_SIZE)
+  batch_size = get(options, :batch_size, MAX_MESSAGE_BATCH_SIZE)
 
 
   Worker(
@@ -24,7 +24,7 @@ function Worker(queue::Queue, write_key::String, options::Dict)
     ReentrantLock(),
     Transport(options),
     true,
-    get(options, "on_error", (status, error) -> @error error)
+    get(options, :on_error, (status, error) -> @error error)
   )
 end
 

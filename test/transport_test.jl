@@ -6,9 +6,9 @@ using JSON
 Mocking.activate()
 
 options = Dict(
-  "port" => 80,
-  "host" => "test.com",
-  "retries" => 2
+  :port => 80,
+  :host => "test.com",
+  :retries => 2
 )
 
 write_key = "testkey"
@@ -16,8 +16,8 @@ write_key = "testkey"
 @testset "Testing initialize transport" begin
   transport = SegmentAnalytics.Transport(options)
 
-  @test transport.host == options["host"]
-  @test transport.port == options["port"]
+  @test transport.host == options[:host]
+  @test transport.port == options[:port]
   @test transport.path == SegmentAnalytics.DEFAULT_PATH
 end
 

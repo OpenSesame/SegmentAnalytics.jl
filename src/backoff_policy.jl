@@ -13,10 +13,10 @@ end
 
 function BackoffPolicy(options::Dict)
   BackoffPolicy(
-    get(options, "min_timeout_ms", DEFAULT_MIN_TIMEOUT_MS),
-    get(options, "max_timeout_ms", DEFAULT_MAX_TIMEOUT_MS),
-    get(options, "multiplier", DEFAULT_MULTIPLIER),
-    get(options, "randomization_factor", DEFAULT_RANDOMIZATION_FACTOR),
+    get(options, :min_timeout_ms, DEFAULT_MIN_TIMEOUT_MS),
+    get(options, :max_timeout_ms, DEFAULT_MAX_TIMEOUT_MS),
+    get(options, :multiplier, DEFAULT_MULTIPLIER),
+    get(options, :randomization_factor, DEFAULT_RANDOMIZATION_FACTOR),
     0
   )
 end

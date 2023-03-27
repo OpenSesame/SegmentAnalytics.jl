@@ -8,25 +8,25 @@ Mocking.activate()
 write_key = "test"
 queue = Queue{Dict}()
 options = Dict(
-  "batch_size" => 5
+  :batch_size => 5
 )
 
 @testset "Testing worker initialization" begin
   worker = SegmentAnalytics.Worker(queue, write_key, options)
 
-  @test worker.batch_size == options["batch_size"]
+  @test worker.batch_size == options[:batch_size]
 end
 
 successful_transport_mock = HTTP.Response(200, Dict("success" => true))
 unsuccessful_transport_mock = HTTP.Response(500, "Server Error")
 
 test_message = Dict(
-  "type" => "track",
-  "event" => "test_event",
-  "properties" => Dict("p1" => 1, "p2" => 2)
+  :type => "track",
+  :event => "test_event",
+  :properties => Dict("p1" => 1, "p2" => 2)
 )
 
-messages_count = options["batch_size"] * 2 + 1
+messages_count = options[:batch_size] * 2 + 1
 
 @testset "Testing run worker" begin
   @testset "Testing worker with successful response" begin
@@ -54,8 +54,8 @@ messages_count = options["batch_size"] * 2 + 1
   @testset "Testing with unsuccessful response and custom error handler" begin
     global errors_count = 0
     options_with_on_error = Dict(
-      "batch_size" => 5,
-      "on_error" => (status, error) -> global errors_count += 1
+      :batch_size => 5,
+      :on_error => (status, error) -> global errors_count += 1
     )
 
     transport_patch = @patch(

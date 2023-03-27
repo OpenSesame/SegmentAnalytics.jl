@@ -34,13 +34,13 @@ end
 
 function Transport(options::Dict)
   Transport(
-    get(options, "host", DEFAULT_HOST),
-    get(options, "port", DEFAULT_PORT),
-    get(options, "ssl", DEFAULT_USE_SSL),
-    get(options, "headers", DEFAULT_HEADERS),
-    get(options, "path", DEFAULT_PATH),
-    get(options, "retries", DEFAULT_RETRIES),
-    get(options, "backoff_policy", BackoffPolicy(options))
+    get(options, :host, DEFAULT_HOST),
+    get(options, :port, DEFAULT_PORT),
+    get(options, :ssl, DEFAULT_USE_SSL),
+    get(options, :headers, DEFAULT_HEADERS),
+    get(options, :path,  DEFAULT_PATH),
+    get(options, :retries, DEFAULT_RETRIES),
+    get(() ->BackoffPolicy(options), options, :backoff_policy)
   )
 end
 

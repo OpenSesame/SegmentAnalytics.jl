@@ -3,7 +3,7 @@
 [![](https://img.shields.io/badge/docs-stable-blue.svg)](https://opensesame.github.io/SegmentAnalytics.jl)
 
 Implementation of segment analytics library inspired by [analytics-ruby](https://github.com/segmentio/analytics-ruby).
- For more information, you can read the Segment[documentation](https://segment.com/docs/connections/sources/catalog/libraries/server/http-api/)
+ For more information, you can read the Segment [documentation](https://segment.com/docs/connections/sources/catalog/libraries/server/http-api/)
 
 # Installation
 
